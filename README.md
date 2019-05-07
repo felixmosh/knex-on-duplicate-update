@@ -1,6 +1,6 @@
 # Knex-onDuplicateUpdate
 
-Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder.
+Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder in order to add support **MySQL**'s `on duplicate key update columnName=Values(columnName)`.
 
 ## How to set up
 
