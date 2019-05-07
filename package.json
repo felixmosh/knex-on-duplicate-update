@@ -1,0 +1,38 @@
+{
+  "name": "knex-on-duplicate-update",
+  "version": "1.0.0",
+  "description": "Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder.",
+  "main": "lib/index.js",
+  "types": "types.d.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixmosh/knex-on-duplicate-update.git"
+  },
+  "keywords": [
+    "knex",
+    "on duplicate update",
+    "upsert"
+  ],
+  "author": "Felixmosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixmosh/knex-on-duplicate-update/issues"
+  },
+  "homepage": "https://github.com/felixmosh/knex-on-duplicate-update#readme",
+  "dependencies": {
+    "knex": "latest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/node": "^12.0.0",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "mysql": "^2.17.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
