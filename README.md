@@ -34,4 +34,4 @@ await knex.insert({id: 1, name: 'John', email: 'john@mail.com'})
     .onDuplicateUpdate('name', 'email');
 ```
 
-This lib got inspiration from [`knex-paginator`]https://github.com/cannblw/knex-paginator).
+This lib got inspiration from [`knex-paginator`](https://github.com/cannblw/knex-paginator).
