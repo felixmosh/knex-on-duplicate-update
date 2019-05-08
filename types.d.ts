@@ -5,3 +5,5 @@ declare module 'knex' {
     onDuplicateUpdate(...columnNames: string[]): KnexQB;
   }
 }
+
+export function attachOnDuplicateUpdate(): void;
