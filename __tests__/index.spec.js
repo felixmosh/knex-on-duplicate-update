@@ -6,7 +6,7 @@ attachOnDuplicateUpdate();
 
 console.log(process.env);
 
-if (process.env.IS_CI !== 'true') {
+if (process.env.CI !== 'true') {
   dotenv.config('../.env');
 }
 

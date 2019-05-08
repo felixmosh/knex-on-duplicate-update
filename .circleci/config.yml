@@ -11,12 +11,12 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10
       - image: circleci/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: test_db
-          MYSQL_USER: user
-          MYSQL_PASSWORD: passw0rd
-          IS_CI: true
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: passw0rd
+      MYSQL_HOST: 127.0.0.1
 
     steps:
       # Checkout from GIT
