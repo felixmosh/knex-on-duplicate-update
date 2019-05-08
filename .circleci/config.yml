@@ -10,13 +10,16 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10
+        environment:
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: user
+          MYSQL_PASSWORD: passw0rd
       - image: circleci/mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpw
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: passw0rd
-      MYSQL_HOST: 127.0.0.1
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: user
+          MYSQL_PASSWORD: passw0rd
 
     steps:
       # Checkout from GIT
