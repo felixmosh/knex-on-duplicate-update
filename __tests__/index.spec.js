@@ -4,8 +4,6 @@ const { attachOnDuplicateUpdate } = require('../lib/index');
 
 attachOnDuplicateUpdate();
 
-console.log(process.env);
-
 if (process.env.CI !== 'true') {
   dotenv.config('../.env');
 }
