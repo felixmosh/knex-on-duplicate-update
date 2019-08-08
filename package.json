@@ -1,6 +1,6 @@
 {
   "name": "knex-on-duplicate-update",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder.",
   "main": "lib/index.js",
   "types": "types.d.ts",
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/felixmosh/knex-on-duplicate-update#readme",
   "peerDependencies": {
-    "knex": "^0.16.5"
+    "knex": "*"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
