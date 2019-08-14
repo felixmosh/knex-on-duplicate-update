@@ -38,6 +38,10 @@ describe('onDuplicateUpdate', () => {
       expect(() => db.insert({ id: 1, name: 'test' }).into('persons').onDuplicateUpdate())
         .toThrowError('onDuplicateUpdate error: please specify at least one column name.');
     });
+    it('should throw if no columns are not string or object', () => {
+      expect(() => db.insert({ id: 1, name: 'test' }).into('persons').onDuplicateUpdate(false))
+        .toThrowError('onDuplicateUpdate error: expected column name to be string or object.');
+    });
   });
 
   describe('behaviour', () => {
@@ -67,6 +71,21 @@ describe('onDuplicateUpdate', () => {
       const person = await getById(id);
 
       expect(person).toEqual(expect.objectContaining({ name: 'test5', email: '5@5.com' }));
+    });
+
+    it('should allow specifying a value for a column when updating multiple', async () => {
+      const id = 5;
+      await db.insert({ id, name: 'test6', email: '6@6.com' }).into('persons');
+      await db.insert({
+        id,
+        name: 'test6',
+        email: '6@6.com'
+      }).into('persons').onDuplicateUpdate('name', {'email': 'updated-email'});
+      const person = await getById(id);
+      expect(person).toEqual(expect.objectContaining({
+        name: 'test6',
+        email: 'updated-email',
+      }));
     });
   });
 });
