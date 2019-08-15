@@ -47,14 +47,16 @@ describe('onDuplicateUpdate', () => {
   describe('behaviour', () => {
     it('should allow insert new row', async () => {
       const person = { id: 2, name: 'test' };
-      await db.insert(person).into('persons').onDuplicateUpdate('name');
+      await db.insert(person).into('persons')
+        .onDuplicateUpdate('name');
       const insertPerson = await getById(2);
       expect(insertPerson).toEqual(expect.objectContaining(person));
     });
 
     it('should update on duplicate', async () => {
       await db.insert({ id: 3, name: 'test3' }).into('persons');
-      await db.insert({ id: 3, name: 'test33' }).into('persons').onDuplicateUpdate('name');
+      await db.insert({ id: 3, name: 'test33' }).into('persons')
+        .onDuplicateUpdate('name');
       const person = await getById(3);
 
       expect(person.name).toBe('test33');
@@ -67,7 +69,8 @@ describe('onDuplicateUpdate', () => {
         id,
         name: 'test5',
         email: '5@5.com'
-      }).into('persons').onDuplicateUpdate('name', 'email');
+      }).into('persons')
+        .onDuplicateUpdate('name', 'email');
       const person = await getById(id);
 
       expect(person).toEqual(expect.objectContaining({ name: 'test5', email: '5@5.com' }));
@@ -80,7 +83,9 @@ describe('onDuplicateUpdate', () => {
         id,
         name: 'test6',
         email: '6@6.com'
-      }).into('persons').onDuplicateUpdate('name', {'email': 'updated-email'});
+      }).into('persons')
+        .onDuplicateUpdate('name', { 'email': 'updated-email' });
+
       const person = await getById(id);
       expect(person).toEqual(expect.objectContaining({
         name: 'test6',
