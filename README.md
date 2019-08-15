@@ -12,6 +12,10 @@ To use this lib, first you will have to install it:
 ```
 npm i knex-on-duplicate-update --save
 ```
+or
+```
+yarn add knex-on-duplicate-update
+```
 
 Then, add the following lines to your Knex set up:
 
@@ -25,7 +29,7 @@ attachOnDuplicateUpdate();
 ## Function definition
 
 ```javascript
-onDuplicateUpdate(...columns: string[]): Knex.QueryBuilder
+onDuplicateUpdate(...columns: Array<{[key: string]: string} | string>): Knex.QueryBuilder
 ```
 
 ## How to use
@@ -36,5 +40,13 @@ await knex.insert({id: 1, name: 'John', email: 'john@mail.com'})
     .into('persons')
     .onDuplicateUpdate('name', 'email');
 ```
+
+Setting a fallback value for a column
+```javascript
+await knex.insert({id: 1, name: 'John', email: 'john@mail.com'})
+    .into('persons')
+    .onDuplicateUpdate('name', {email: 'john-exists@mail.com'});
+```
+
 
 This lib got inspiration from [`knex-paginator`](https://github.com/cannblw/knex-paginator).

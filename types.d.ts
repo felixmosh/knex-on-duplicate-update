@@ -2,7 +2,7 @@ import { QueryBuilder as KnexQB } from 'knex';
 
 declare module 'knex' {
   interface QueryBuilder {
-    onDuplicateUpdate(...columnNames: string[]): KnexQB;
+    onDuplicateUpdate(...columnNames: Array<{[key: string]: string} | string>): KnexQB;
   }
 }
 
