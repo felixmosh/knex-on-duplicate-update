@@ -38,7 +38,7 @@ describe('onDuplicateUpdate', () => {
       expect(() => db.insert({ id: 1, name: 'test' }).into('persons').onDuplicateUpdate())
         .toThrowError('onDuplicateUpdate error: please specify at least one column name.');
     });
-    it('should throw if no columns are not string or object', () => {
+    it('should throw if columns are not string or object', () => {
       expect(() => db.insert({ id: 1, name: 'test' }).into('persons').onDuplicateUpdate(false))
         .toThrowError('onDuplicateUpdate error: expected column name to be string or object.');
     });
@@ -84,7 +84,24 @@ describe('onDuplicateUpdate', () => {
         name: 'test6',
         email: '6@6.com'
       }).into('persons')
-        .onDuplicateUpdate('name', { 'email': 'updated-email' });
+        .onDuplicateUpdate({ 'email': 'updated-email', 'name': 'update-name' });
+
+      const person = await getById(id);
+      expect(person).toEqual(expect.objectContaining({
+        name: 'update-name',
+        email: 'updated-email',
+      }));
+    });
+
+    it('should allow specifying a value for a column when updating multiple and mix types', async () => {
+      const id = 6;
+      await db.insert({ id, name: 'test6', email: '6@6.com' }).into('persons');
+      await db.insert({
+        id,
+        name: 'test6',
+        email: '6@6.com'
+      }).into('persons')
+        .onDuplicateUpdate({ 'email': 'updated-email' }, 'name');
 
       const person = await getById(id);
       expect(person).toEqual(expect.objectContaining({
