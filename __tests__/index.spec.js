@@ -109,5 +109,18 @@ describe('onDuplicateUpdate', () => {
         email: 'updated-email',
       }));
     });
+
+    it('should correctly escape field with ? character', async () => {
+      await db
+        .insert({ id: 7, name: 'other value' })
+        .into('persons');
+      await db
+        .insert({ id: 7, name: '?' })
+        .into('persons')
+        .onDuplicateUpdate('name');
+      const person = await getById(7);
+
+      expect(person.name).toBe('?');
+    });
   });
 });
