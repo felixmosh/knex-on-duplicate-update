@@ -112,7 +112,7 @@ describe('onDuplicateUpdate', () => {
 
     it('should correctly escape field with ? character', async () => {
       await db
-        .insert({ id: 7, name: '?' })
+        .insert({ id: 7, name: 'other value' })
         .into('persons');
       await db
         .insert({ id: 7, name: '?' })
