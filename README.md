@@ -1,3 +1,6 @@
+# DEPRECATED
+`Knex` (v0.21.10) added an official [`upsert`](http://knexjs.org/#Builder-onConflict) functionality with similar capabilities which has support in MySQL, Postgress & SQLite.
+
 # Knex-onDuplicateUpdate
 
 [![npm](https://img.shields.io/npm/v/knex-on-duplicate-update.svg)](https://www.npmjs.com/package/knex-on-duplicate-update)
