@@ -1,8 +1,10 @@
-import { QueryBuilder as KnexQB } from 'knex';
+import { Knex } from 'knex';
 
 declare module 'knex' {
-  interface QueryBuilder {
-    onDuplicateUpdate(...columnNames: Array<{ [key: string]: string } | string>): KnexQB;
+  namespace Knex {
+    interface QueryBuilder {
+      onDuplicateUpdate(...columnNames: Array<{ [key: string]: string } | string>): Knex.QueryBuilder<any, any>;
+    }
   }
 }
 
