@@ -3,7 +3,7 @@ import { Knex } from 'knex';
 declare module 'knex' {
   namespace Knex {
     interface QueryBuilder {
-      onDuplicateUpdate(...columnNames: Array<{ [key: string]: string } | string>): Knex.QueryBuilder<any, any>;
+      onDuplicateUpdate(...columnNames: Array<{ [key: string]: any } | string>): Knex.QueryBuilder<any, any>;
     }
   }
 }

@@ -122,5 +122,16 @@ describe('onDuplicateUpdate', () => {
 
       expect(person.name).toBe('?');
     });
+
+    it('should accepts any valid value in object form', async () => {
+      await db
+        .insert({ id: 7, name: 'other value' })
+        .into('persons')
+        .onDuplicateUpdate({ name: 2, email: db.raw('?', ['raw@test.com']) });
+      const person = await getById(7);
+
+      expect(person.name).toBe('2');
+      expect(person.email).toBe('raw@test.com');
+    });
   });
 });
