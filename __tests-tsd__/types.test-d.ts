@@ -13,7 +13,9 @@ const db = knex({});
       name: db.raw('Concat(name, "_test")'),
     });
 
-  const response = await db<{ id: number; name: string }>('table')
+  const [{ insertId }] = await db<{ id: number; name: string }>('table')
     .insert({ id: 1, name: 'bla' })
     .onDuplicateUpdate('name', 'id', { name: db.raw('Concat(name, "_test")') });
+
+  const testId = insertId === 1 ? 1 : 0;
 })();
