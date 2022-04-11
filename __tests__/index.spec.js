@@ -42,6 +42,10 @@ describe('onDuplicateUpdate', () => {
       expect(() => db.insert({ id: 1, name: 'test' }).into('persons').onDuplicateUpdate(false))
         .toThrowError('onDuplicateUpdate error: expected column name to be string or object.');
     });
+    it('should throw if insert is empty array', () => {
+      expect(() => db.insert([]).into('persons').onDuplicateUpdate('whatever'))
+        .toThrowError('onDuplicateUpdate error: empty insert statement.');
+    });
   });
 
   describe('behaviour', () => {
