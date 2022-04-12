@@ -2,6 +2,21 @@
   "name": "knex-on-duplicate-update",
   "version": "2.1.3",
   "description": "Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder.",
+  "keywords": [
+    "knex",
+    "on duplicate update",
+    "upsert"
+  ],
+  "homepage": "https://github.com/felixmosh/knex-on-duplicate-update#readme",
+  "bugs": {
+    "url": "https://github.com/felixmosh/knex-on-duplicate-update/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixmosh/knex-on-duplicate-update.git"
+  },
+  "license": "ISC",
+  "author": "Felixmosh",
   "main": "lib/index.js",
   "types": "types.d.ts",
   "files": [
@@ -9,28 +24,17 @@
     "types.d.ts"
   ],
   "scripts": {
+    "release": "release-it",
     "test": "jest",
     "test:types": "tsd",
-    "version": "auto-changelog -p && git add CHANGELOG.md",
-    "release": "release-it"
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/felixmosh/knex-on-duplicate-update.git"
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"    ]
   },
-  "keywords": [
-    "knex",
-    "on duplicate update",
-    "upsert"
-  ],
-  "author": "Felixmosh",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/felixmosh/knex-on-duplicate-update/issues"
-  },
-  "homepage": "https://github.com/felixmosh/knex-on-duplicate-update#readme",
-  "peerDependencies": {
-    "knex": ">= 0.95.1"
+  "jest": {
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
@@ -40,11 +44,12 @@
     "jest": "^27.0.6",
     "knex": "0.95.9",
     "mysql": "^2.18.1",
+    "prettier": "^2.6.2",
     "release-it": "^14.4.1",
     "tsd": "^0.17.0"
   },
-  "jest": {
-    "testEnvironment": "node"
+  "peerDependencies": {
+    "knex": ">= 0.95.1"
   },
   "release-it": {
     "git": {
