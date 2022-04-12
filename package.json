@@ -31,22 +31,23 @@
   },
   "lint-staged": {
     "*.ts": [
-      "prettier --write"    ]
+      "prettier --write"
+    ]
   },
   "jest": {
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^27.4.1",
     "@types/node": "^16.6.1",
-    "auto-changelog": "^2.2.1",
-    "dotenv": "^10.0.0",
-    "jest": "^27.0.6",
-    "knex": "0.95.9",
+    "auto-changelog": "^2.4.0",
+    "dotenv": "^16.0.0",
+    "jest": "^27.5.1",
+    "knex": "1.0.6",
     "mysql": "^2.18.1",
     "prettier": "^2.6.2",
-    "release-it": "^14.4.1",
-    "tsd": "^0.17.0"
+    "release-it": "^14.14.2",
+    "tsd": "^0.20.0"
   },
   "peerDependencies": {
     "knex": ">= 0.95.1"
@@ -73,5 +74,6 @@
       "module": "commonjs",
       "target": "ES2017"
     }
-  }
+  },
+  "dependencies": {}
 }
