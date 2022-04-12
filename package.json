@@ -24,7 +24,7 @@
     "types.d.ts"
   ],
   "scripts": {
-    "release": "release-it",
+    "release": "release-it --only-version",
     "test": "jest",
     "test:types": "tsd",
     "version": "auto-changelog -p && git add CHANGELOG.md"
