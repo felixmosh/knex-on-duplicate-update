@@ -6,7 +6,7 @@
 Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder in order to add support **MySQL**'s `on duplicate key update columnName=Values(columnName)`.
 
 ## Note
-`Knex` (v0.21.10) added an official [`upsert`](http://knexjs.org/#Builder-onConflict) functionality with similar capabilities which has support in MySQL, Postgress & SQLite.
+`Knex` (v0.21.10) added an official [`upsert`](http://knexjs.org/#Builder-onConflict) functionality with similar capabilities which supports MySQL, Postgress & SQLite.
 
 ## How to set up
 
