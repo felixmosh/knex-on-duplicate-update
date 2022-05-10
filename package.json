@@ -38,15 +38,15 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.6.1",
+    "@types/jest": "^27.5.0",
+    "@types/node": "^17.0.31",
     "auto-changelog": "^2.4.0",
     "dotenv": "^16.0.0",
-    "jest": "^27.5.1",
-    "knex": "1.0.6",
+    "jest": "^28.1.0",
+    "knex": "2.0.0",
     "mysql": "^2.18.1",
     "prettier": "^2.6.2",
-    "release-it": "^14.14.2",
+    "release-it": "^15.0.0",
     "tsd": "^0.20.0"
   },
   "peerDependencies": {
