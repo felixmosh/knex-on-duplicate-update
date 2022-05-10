@@ -1,6 +1,6 @@
 {
   "name": "knex-on-duplicate-update",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder.",
   "keywords": [
     "knex",
