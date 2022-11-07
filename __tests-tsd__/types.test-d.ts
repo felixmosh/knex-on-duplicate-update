@@ -17,5 +17,5 @@ const db = knex({});
     .insert({ id: 1, name: 'bla' })
     .onDuplicateUpdate('name', 'id', { name: db.raw('Concat(name, "_test")') });
 
-  const testId = insertId === 1 ? 1 : 0;
+  return insertId;
 })();
