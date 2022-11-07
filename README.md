@@ -1,7 +1,7 @@
 # Knex-onDuplicateUpdate
 
 [![npm](https://img.shields.io/npm/v/knex-on-duplicate-update.svg)](https://www.npmjs.com/package/knex-on-duplicate-update)
-[![CircleCI](https://circleci.com/gh/felixmosh/knex-on-duplicate-update.svg?style=svg)](https://circleci.com/gh/felixmosh/knex-on-duplicate-update)
+[![CI](https://github.com/felixmosh/knex-on-duplicate-update/actions/workflows/ci.yml/badge.svg)](https://github.com/felixmosh/knex-on-duplicate-update/actions/workflows/ci.yml)
 
 Simple patcher for Knex. It adds the .onDuplicateUpdate() function to knex's query builder in order to add support **MySQL**'s `on duplicate key update columnName=Values(columnName)`.
 
